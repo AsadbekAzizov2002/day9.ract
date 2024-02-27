@@ -10,6 +10,9 @@ import vector7 from "./assets/vector7.svg";
 import vector8 from "./assets/vector8.svg";
 import resto from "./assets/resto.png";
 import del from "./assets/del.svg";
+import card from "./assets/card.svg";
+import paypal from "./assets/paypal.svg";
+import cash from "./assets/cash.svg";
 
 const App = () => {
   const [dishes, setDishes] = useState([]);
@@ -24,42 +27,53 @@ const App = () => {
   const increment = () => {
     setStep(step + 1);
   };
+  const decler = () => {
+    setStep(step - 1);
+  };
+  const incrementt = () => {
+    setStep(step + 3);
+  };
   return (
     <div className="container mx-auto bg-[#252836]">
       <div className=" flex">
-        <div className=" bg-[#1F1D2B] w-[104px]">
+        <div className=" w-[104px] bg-[#1F1D2B]">
           <img className=" py-3 pl-5" src={vector1} alt="img" />
           <img className=" py-3 " src={vector2} alt="img" />
           <img className=" py-3 pl-5" src={vector3} alt="img" />
-          <img className=" py-3 pl-5" src={vector4} alt="img" />
+          <img
+            onClick={incrementt}
+            className=" py-3 pl-5"
+            src={vector4}
+            alt="img"
+          />
           <img className=" py-3 pl-5" src={vector5} alt="img" />
           <img className=" py-3 pl-5" src={vector6} alt="img" />
           <img className=" py-3 pl-5" src={vector7} alt="img" />
           <img className=" py-3 pl-5" src={vector8} alt="img" />
         </div>
         {step === 1 && (
-          <div className=" container w-full flex justify-between">
+          <div className=" container w-full justify-between lg:flex">
             <div className=" w-full">
               <div className=" border-b-2">
-                <div className=" flex justify-between text-center mt-6">
+                <div className=" mt-6 justify-between text-center md:flex">
                   <div>
                     <img
                       src={resto}
                       alt="logo"
                       className=" w-[164px] justify-between"
                     />
-                    <h2 className=" text-[#E0E6E9] font-normal mb-6">
+                    <h2 className=" mb-6 font-normal text-[#E0E6E9]">
                       Tuesday, 2 Feb 2021
                     </h2>
                   </div>
                   <input
-                    className=" border-slate-700 text-white bg-[#2D303E] w-[220px] py-[14px] pr-[14px] pl-[42] text-center text-font-[normal] rounded-lg"
+                    className=" text-font-[normal] w-[220px] rounded-lg border-slate-700 bg-[#2D303E] py-[14px] pl-[42] pr-[14px] text-center text-white"
                     type="text"
                     placeholder="Search for food, coffe, etc.."
                   />
                 </div>
                 <div>
-                  <ul className=" flex text-white gap-[42px]">
+                  <ul className=" gap-[42px] text-white sm:flex">
                     <li className=" font-semibold">Hot Dishes</li>
                     <li className=" font-semibold">Cold Dishes</li>
                     <li className=" font-semibold">Soup</li>
@@ -71,7 +85,7 @@ const App = () => {
               </div>
               <div>
                 <div className=" flex justify-between pt-8">
-                  <h1 className=" text-white font-semibold w-[129px]">
+                  <h1 className=" w-[129px] font-semibold text-white">
                     Choose Dishes
                   </h1>
                   <select
@@ -93,9 +107,9 @@ const App = () => {
                       <img
                         src={dish.imgUrl}
                         alt="img"
-                        className=" w-[200px] h-[170px]"
+                        className=" h-[170px] w-[200px]"
                       />
-                      <h2 className=" text-white w-[144px]">{dish.title}</h2>
+                      <h2 className=" w-[144px] text-white">{dish.title}</h2>
                       <h3 className=" text-white">{dish.price}</h3>
                       <h3 className=" text-white">{dish.isAvailable}</h3>
                     </div>
@@ -103,27 +117,27 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <div className=" bg-[#1F1D2B] w-[570px] pl-6 py-6 h-full">
+            <div className=" h-full w-[570px] bg-[#1F1D2B] py-6 pl-6">
               <div>
-                <h1 className=" text-white font-semibold mb-6">
+                <h1 className=" mb-6 font-semibold text-white">
                   Orders #34562
                 </h1>
-                <div className=" gap-3 flex">
-                  <button className=" bg-red-400  px-[12px] py-[7px] text-white border rounded">
+                <div className=" flex gap-3">
+                  <button className=" rounded  border  bg-red-400 px-[12px] py-[7px] text-white">
                     Dine In
                   </button>
-                  <button className="  px-[12px] py-[7px] text-white border rounded">
+                  <button className="  rounded border px-[12px] py-[7px] text-white">
                     To Go
                   </button>
-                  <button className="  px-[12px] py-[7px] text-white border rounded">
+                  <button className="  rounded border px-[12px] py-[7px] text-white">
                     Delivery
                   </button>
                 </div>
                 <div className=" flex justify-between">
-                  <h2 className=" text-white font-semibold">Item</h2>
+                  <h2 className=" font-semibold text-white">Item</h2>
                   <div className=" flex gap-2 pr-6">
-                    <h2 className=" text-white font-semibold">Qty</h2>
-                    <h2 className=" text-white font-semibold">Price</h2>
+                    <h2 className=" font-semibold text-white">Qty</h2>
+                    <h2 className=" font-semibold text-white">Price</h2>
                   </div>
                 </div>
               </div>
@@ -133,15 +147,15 @@ const App = () => {
                     <h2 className=" text-white">Spicy seasoned sea...</h2>
                     <h2 className=" text-white">$ 2.29</h2>
                   </div>
-                  <button className=" text-white p-3 bg-[#2D303E]">+</button>
-                  <button className=" text-white p-3 mx-6 bg-[#2D303E]">
+                  <button className=" bg-[#2D303E] p-3 text-white">+</button>
+                  <button className=" mx-6 bg-[#2D303E] p-3 text-white">
                     -
                   </button>
                   <h2 className=" text-white">$ 4,58</h2>
                 </div>
                 <div className=" flex">
                   <input
-                    className=" bg-[#2D303E] text-white py-[14px] pl-[14px] pr-[88px] rounded mr-5"
+                    className=" mr-5 rounded bg-[#2D303E] py-[14px] pl-[14px] pr-[88px] text-white"
                     type="text"
                     placeholder="Please, just a little bit spicy only."
                   />
@@ -154,15 +168,15 @@ const App = () => {
                     <h2 className=" text-white">Spicy seasoned sea...</h2>
                     <h2 className=" text-white">$ 2.29</h2>
                   </div>
-                  <button className=" text-white p-3 bg-[#2D303E]">+</button>
-                  <button className=" text-white p-3 mx-6 bg-[#2D303E]">
+                  <button className=" bg-[#2D303E] p-3 text-white">+</button>
+                  <button className=" mx-6 bg-[#2D303E] p-3 text-white">
                     -
                   </button>
                   <h2 className=" text-white">$ 4,58</h2>
                 </div>
                 <div className=" flex">
                   <input
-                    className=" bg-[#2D303E] text-white py-[14px] pl-[14px] pr-[88px] rounded mr-5"
+                    className=" mr-5 rounded bg-[#2D303E] py-[14px] pl-[14px] pr-[88px] text-white"
                     type="text"
                     placeholder="Please, just a little bit spicy only."
                   />
@@ -175,15 +189,15 @@ const App = () => {
                     <h2 className=" text-white">Spicy seasoned sea...</h2>
                     <h2 className=" text-white">$ 2.29</h2>
                   </div>
-                  <button className=" text-white p-3 bg-[#2D303E]">+</button>
-                  <button className=" text-white p-3 mx-6 bg-[#2D303E]">
+                  <button className=" bg-[#2D303E] p-3 text-white">+</button>
+                  <button className=" mx-6 bg-[#2D303E] p-3 text-white">
                     -
                   </button>
                   <h2 className=" text-white">$ 4,58</h2>
                 </div>
                 <div className=" flex">
                   <input
-                    className=" bg-[#2D303E] text-white py-[14px] pl-[14px] pr-[88px] rounded mr-5"
+                    className=" mr-5 rounded bg-[#2D303E] py-[14px] pl-[14px] pr-[88px] text-white"
                     type="text"
                     placeholder="Please, just a little bit spicy only."
                   />
@@ -195,20 +209,168 @@ const App = () => {
                   <h2>Discount</h2>
                   <h2 className=" pr-3">$0</h2>
                 </div>
-                <div className=" px-2 flex justify-between text-white mb-4">
+                <div className=" mb-4 flex justify-between px-2 text-white">
                   <h2>Sub total</h2>
                   <h2>$ 21,03</h2>
                 </div>
               </div>
               <button
                 onClick={increment}
-                className=" text-white bg-[#EA7C69] py-[14px] px-28 border rounded"
+                className=" rounded border bg-[#EA7C69] px-28 py-[14px] text-white"
               >
                 Continue to Payment
               </button>
             </div>
           </div>
         )}
+        {step === 2 && (
+          <div className=" w-[358px] pl-4">
+            <div>
+              <h1 className=" mb-2 pt-[20px] font-bold text-white">Payment</h1>
+              <h2 className=" mb-8 font-normal text-gray-300 ">
+                3 payment method available
+              </h2>
+            </div>
+            <div className="method">
+              <h1 className=" mb-4 text-white">Payment Method</h1>
+              <div className=" items-center gap-2">
+                <button className=" h-16 w-[104px] justify-center rounded-xl border">
+                  <img
+                    src={card}
+                    alt="card"
+                    className=" m-auto justify-center bg-white"
+                  />
+                  <h3 className=" text-white">Credit Card</h3>
+                </button>
+                <button className=" mx-2 h-16 w-[104px] justify-center rounded-xl border">
+                  <img
+                    src={paypal}
+                    alt="card"
+                    className=" m-auto justify-center bg-white"
+                  />
+                  <h3 className=" text-white">Paypal</h3>
+                </button>
+                <button className=" h-16 w-[104px] rounded-xl border ">
+                  <img
+                    src={cash}
+                    alt="cash"
+                    className=" m-auto justify-center bg-white"
+                  />
+                  <h3 className=" text-white ">Cash</h3>
+                </button>
+              </div>
+            </div>
+            <div className=" mt-4">
+              <label className=" mt-4 text-white" htmlFor="Cardholder">
+                Cardholder Name
+                <input
+                  className=" mb-4 w-[358px] rounded border bg-inherit py-3 pl-[14px] pr-[253]"
+                  type="text"
+                  placeholder="Levi Ackerman"
+                  id="Cardholder"
+                />
+              </label>
+              <label className=" text-white" htmlFor="Card">
+                Card Number
+                <input
+                  className=" w-[358px] rounded border bg-inherit py-3 pl-[14px] pr-[223]"
+                  type="text"
+                  placeholder="Card Number"
+                  id="Card"
+                />
+              </label>
+            </div>
+            <div className=" mt-4 flex gap-2">
+              <label className=" text-white" htmlFor="Expiration">
+                Expiration Date
+                <input
+                  className=" w-[172px] rounded border bg-inherit py-[14px] pl-[14px] pr-[106px]"
+                  type="text"
+                  placeholder="02/2022"
+                  id="Expiration"
+                />
+              </label>
+              <label className=" text-white " htmlFor="table">
+                svv
+                <input
+                  className=" w-[172px] rounded border bg-inherit py-[14px] pl-[14px] pr-[106px]"
+                  type="text"
+                  placeholder=" . . ."
+                  id="table"
+                />
+              </label>
+            </div>
+            <div className=" mt-4 flex gap-2">
+              <label className=" text-white" htmlFor="Order">
+                Order Type
+                <input
+                  className=" w-[172px] rounded border bg-inherit py-[14px] pl-[14px] pr-[106px]"
+                  type="text"
+                  placeholder="Dine In"
+                  id="Order"
+                />
+              </label>
+              <label className=" text-white " htmlFor="no">
+                Table no.
+                <input
+                  className=" w-[172px] rounded border bg-inherit py-[14px] pl-[14px] pr-[106px]"
+                  type="text"
+                  placeholder="140"
+                  id="no"
+                />
+              </label>
+            </div>
+            <div className=" flex gap-2">
+              <button
+                onClick={decler}
+                className=" mt-6 w-[175px] rounded border px-[66px] py-[7px] text-white"
+              >
+                Cancel
+              </button>
+              <button
+                onClick={increment}
+                className=" mt-6 w-[175px] rounded border bg-red-400 px-[34px] py-[7px] text-white"
+              >
+                Confirm Payment
+              </button>
+            </div>
+          </div>
+        )}
+        {step === 3 && (
+          <div>
+            <div>
+              <h1 className=" font-bold text-white">Buyurtma qabul qilindi</h1>
+            </div>
+            <div>
+              <button onClick={decler} className=" bg-red-300 px-10 py-5">
+                cencle
+              </button>
+              <button onClick={increment} className=" bg-red-300 px-10 py-5">
+                next
+              </button>
+            </div>
+          </div>
+        )}
+        {step === 4 && 
+        <div>
+        <div>
+          <div>
+            header
+          </div>
+          <div>
+            hero
+          </div>
+          </div>  
+          <div>
+            <div>
+              reght header
+            </div>
+            <div>
+              reght hero
+            </div>
+            reght box
+          </div>
+          </div>}
       </div>
     </div>
   );

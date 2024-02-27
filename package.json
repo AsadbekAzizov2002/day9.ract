@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "json-server": "^1.0.0-alpha.23"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.11"
   }
 }

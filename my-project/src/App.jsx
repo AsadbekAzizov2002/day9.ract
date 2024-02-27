@@ -33,6 +33,9 @@ const App = () => {
   const incrementt = () => {
     setStep(step + 3);
   };
+  const plass = () => {
+    setStep(step + 4);
+  };
   return (
     <div className="container mx-auto bg-[#252836]">
       <div className=" flex">
@@ -48,7 +51,7 @@ const App = () => {
           />
           <img className=" py-3 pl-5" src={vector5} alt="img" />
           <img className=" py-3 pl-5" src={vector6} alt="img" />
-          <img className=" py-3 pl-5" src={vector7} alt="img" />
+          <img onClick={plass} className=" py-3 pl-5" src={vector7} alt="img" />
           <img className=" py-3 pl-5" src={vector8} alt="img" />
         </div>
         {step === 1 && (
@@ -351,26 +354,23 @@ const App = () => {
             </div>
           </div>
         )}
-        {step === 4 && 
-        <div>
-        <div>
-          <div>
-            header
-          </div>
-          <div>
-            hero
-          </div>
-          </div>  
+        {step === 4 && (
           <div>
             <div>
-              reght header
+              <div>
+                <h1 className=" w-80 font-black text-white">
+                  Hali oxirgacha yozib bolganim yoq uzuraa (:)'
+                </h1>
+              </div>
+              <div>hero</div>
             </div>
             <div>
-              reght hero
+              <div>reght header</div>
+              <div>reght hero</div>
+              reght box
             </div>
-            reght box
           </div>
-          </div>}
+        )}
       </div>
     </div>
   );
